@@ -1,8 +1,8 @@
 package steps;
 
-import common.DataStore;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.hamcrest.MatcherAssert;
 import pages.LoginPage;
 
 public class LoginPageSteps extends ScenarioSteps {
@@ -33,4 +33,25 @@ public class LoginPageSteps extends ScenarioSteps {
         loginPage.loginButton.click();
         return this;
     }
+
+    @Step("User should receive error message: '{0}'")
+    public LoginPageSteps shouldSeeErrorMessageAboutEmptyCredentials(String errorMessage) {
+        switch (errorMessage) {
+            case LoginPage.EMPTY_CREDENTIALS_MSG :
+                loginPage.waitForTextToAppear(loginPage.emptyCredentialsMsg, errorMessage);
+                MatcherAssert.assertThat("Error message is shown",loginPage.emptyCredentialsMsg.getText().equals(LoginPage.EMPTY_CREDENTIALS_MSG));
+                break;
+            case LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG :
+                loginPage.waitForTextToAppear(loginPage.noPasswordMsg, errorMessage);
+                MatcherAssert.assertThat("Error message is shown",loginPage.noPasswordMsg.getText().equals(LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG));
+                break;
+            case LoginPage.INCORRECT_LOGIN_INFO_MSG:
+                loginPage.waitForTextToAppear(loginPage.invalidLoginMsg, errorMessage);
+                MatcherAssert.assertThat("Error message is shown",loginPage.invalidLoginMsg.getText().equals(LoginPage.INCORRECT_LOGIN_INFO_MSG));
+                break;
+        }
+        return this;
+    }
+
+
 }
