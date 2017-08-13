@@ -9,13 +9,13 @@ public class InitialPageSteps extends ScenarioSteps {
 
     @Step("Press Log In button")
     public InitialPageSteps pressLoginButton() {
-        initialPage.loginButton.click();
+        initialPage.utils.clickOnElement(initialPage.loginButton);
         return this;
     }
 
     @Step("Press Create Account button")
     public InitialPageSteps pressCreateAccountButton() {
-        initialPage.createAccountButton.click();
+        initialPage.utils.clickOnElement(initialPage.createAccountButton);
         return this;
     }
 }

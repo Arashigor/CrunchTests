@@ -1,15 +1,8 @@
 package pages;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import net.serenitybdd.core.pages.WebElementExpectations;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.WrapsDriver;
-import org.yecht.Data;
+import java.util.List;
 
 public class LoginPage extends AbstractPage {
     public static final String EMPTY_CREDENTIALS_MSG = "You forgot to put in your User Name or Email.";
@@ -37,5 +30,21 @@ public class LoginPage extends AbstractPage {
 
     @iOSFindBy(accessibility = "Incorrect login information.")
     public WebElementFacade invalidLoginMsg;
+
+    private List<WebElementFacade> errorMsgList;
+    {
+        errorMsgList.add(emptyCredentialsMsg);
+        errorMsgList.add(noPasswordMsg);
+        errorMsgList.add(invalidLoginMsg);
+    }
+
+    public WebElementFacade getErrorMsgElem(String errorMsg) {
+        for (WebElementFacade el : errorMsgList) {
+            if (el.getText().equals(errorMsg)) {
+                return el;
+            }
+        }
+        return null;
+    }
 
 }

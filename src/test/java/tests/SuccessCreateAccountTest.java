@@ -11,7 +11,7 @@ public class SuccessCreateAccountTest extends BaseTest {
     @WithTagValuesOf({ "smoke", "sanity", "production", "critical"})
     @Title("Successfully create account test")
     public void succCreateAccountTest() {
-        startupPopupSteps.pressAllow();
+        allowNotificationPopupSteps.pressAllow();
         initialPageSteps.pressCreateAccountButton();
         createAccountSteps.enterEmail(DataStore.randomEmail()).enterPassword(DataStore.BASIC_PASSWORD).pressCreateAccountButton();
         premiumSubsSteps.pressLaterButton();

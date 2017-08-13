@@ -1,23 +1,26 @@
 package tests;
 
 import basetest.BaseTest;
-import common.DataStore;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
-import pages.LoginPage;
+
+import static common.DataStore.*;
+import static pages.LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG;
+import static pages.LoginPage.EMPTY_CREDENTIALS_MSG;
+import static pages.LoginPage.INCORRECT_LOGIN_INFO_MSG;
 
 public class LoginErrorTest extends BaseTest{
     @Test
     @WithTagValuesOf({ "smoke", "sanity", "production", "high"})
     @Title("Log In errors test")
     public void loginErrorWithEmptyFieldsTest() {
-        startupPopupSteps.pressAllow();
+        allowNotificationPopupSteps.pressAllow();
         initialPageSteps.pressLoginButton();
 
-        loginPageSteps.enterEmail(DataStore.BLANK_EMAIL).enterPassword(DataStore.BLANK_PASSWORD).pressLoginButton().shouldSeeErrorMessageAboutEmptyCredentials(LoginPage.EMPTY_CREDENTIALS_MSG);
-        loginPageSteps.enterEmail(DataStore.REGISTRED_USER_EMAIL).enterPassword(DataStore.BLANK_PASSWORD).pressLoginButton().shouldSeeErrorMessageAboutEmptyCredentials(LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG);
-        loginPageSteps.enterEmail(DataStore.WRONG_EMAIL).enterPassword(DataStore.REGISTRED_USER_PASSWORD).pressLoginButton().shouldSeeErrorMessageAboutEmptyCredentials(LoginPage.INCORRECT_LOGIN_INFO_MSG);
-        loginPageSteps.enterEmail(DataStore.REGISTRED_USER_EMAIL).enterPassword(DataStore.WRONG_PASSWORD).pressLoginButton().shouldSeeErrorMessageAboutEmptyCredentials(LoginPage.INCORRECT_LOGIN_INFO_MSG);
+        loginPageSteps.logIn(BLANK_EMAIL,BASIC_PASSWORD).shouldSeeErrorMessage(EMPTY_CREDENTIALS_MSG)
+                       .logIn(REGISTRED_USER_EMAIL,BLANK_PASSWORD).shouldSeeErrorMessage(CORRECT_EMAIL_NO_PASSWORD_MSG)
+                       .logIn(WRONG_EMAIL, REGISTRED_USER_PASSWORD).shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG)
+                       .logIn(REGISTRED_USER_EMAIL, WRONG_PASSWORD).shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG);
     }
 }

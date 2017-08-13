@@ -9,4 +9,5 @@ public abstract class AbstractPage extends PageObject {
     public AbstractPage() {
         utils = new Utils();
     }
+
 }
