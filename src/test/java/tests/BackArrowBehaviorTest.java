@@ -10,7 +10,7 @@ public class BackArrowBehaviorTest extends BaseTest {
     @WithTagValuesOf({ "smoke", "sanity", "production", "high"})
     @Title("Back Arrow behavior test")
     public void backArrowBehaviorTest() {
-        allowNotificationPopupSteps.pressAllow();
+        notificationPopupSteps.pressAllow();
 
         initialPageSteps.pressLoginButton();
         loginPageSteps.pressBackArrow();

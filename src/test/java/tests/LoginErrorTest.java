@@ -15,12 +15,12 @@ public class LoginErrorTest extends BaseTest{
     @WithTagValuesOf({ "smoke", "sanity", "production", "high"})
     @Title("Log In errors test")
     public void loginErrorWithEmptyFieldsTest() {
-        allowNotificationPopupSteps.pressAllow();
+        notificationPopupSteps.pressAllow();
         initialPageSteps.pressLoginButton();
 
         loginPageSteps.logIn(BLANK_EMAIL,BASIC_PASSWORD).shouldSeeErrorMessage(EMPTY_CREDENTIALS_MSG)
-                       .logIn(REGISTRED_USER_EMAIL,BLANK_PASSWORD).shouldSeeErrorMessage(CORRECT_EMAIL_NO_PASSWORD_MSG)
-                       .logIn(WRONG_EMAIL, REGISTRED_USER_PASSWORD).shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG)
-                       .logIn(REGISTRED_USER_EMAIL, WRONG_PASSWORD).shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG);
+                       .logIn(REGISTERED_USER_EMAIL,BLANK_PASSWORD).shouldSeeErrorMessage(CORRECT_EMAIL_NO_PASSWORD_MSG)
+                       .logIn(WRONG_EMAIL, REGISTERED_USER_PASSWORD).shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG)
+                       .logIn(REGISTERED_USER_EMAIL, WRONG_PASSWORD).shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG);
     }
 }

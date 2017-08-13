@@ -10,13 +10,13 @@ public class FirstLaunchTest extends BaseTest {
     @WithTagValuesOf({ "smoke", "sanity", "production", "critical"})
     @Title("First launch popup notification test")
     public void firstLaunchAllowNotifications() {
-        allowNotificationPopupSteps.pressAllow();
+        notificationPopupSteps.pressAllow();
     }
 
     @Test
     @WithTagValuesOf({ "smoke", "sanity", "production", "critical"})
     @Title("First launch popup notification test")
     public void firstLaunchDontAllowNotifications() {
-        allowNotificationPopupSteps.pressDontAllow();
+        notificationPopupSteps.pressDontAllow();
     }
 }

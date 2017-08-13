@@ -16,7 +16,7 @@ public class BaseTest {
     WebDriver driver;
 
     @Steps
-    protected AllowNotificationPopupSteps allowNotificationPopupSteps;
+    protected NotificationPopupSteps notificationPopupSteps;
 
     @Steps
     protected InitialPageSteps initialPageSteps;

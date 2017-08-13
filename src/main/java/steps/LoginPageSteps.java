@@ -25,21 +25,21 @@ public class LoginPageSteps extends ScenarioSteps {
         return this;
     }
 
-    @Step("Enter email")
+    @Step("Enter data in email field")
     public LoginPageSteps enterEmail(String email) {
         loginPage.utils.waitForElement(loginPage.emailField,5000).clear();
         loginPage.utils.toMobileElem(loginPage.emailField).setValue(email);
         return this;
     }
 
-    @Step("Enter password")
+    @Step("Enter data in password field")
     public LoginPageSteps enterPassword(String password) {
         loginPage.utils.waitForElement(loginPage.passwordField,5000).clear();
         loginPage.utils.toMobileElem(loginPage.passwordField).setValue(password);
         return this;
     }
 
-    @Step("Login as existing user")
+    @Step("Press Login button")
     public LoginPageSteps pressLoginButton() {
         loginPage.utils.clickOnElement(loginPage.loginButton);
         return this;

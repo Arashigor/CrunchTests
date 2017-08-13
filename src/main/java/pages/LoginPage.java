@@ -9,7 +9,6 @@ public class LoginPage extends AbstractPage {
     public static final String CORRECT_EMAIL_NO_PASSWORD_MSG = "You forgot to put in your password.";
     public static final String INCORRECT_LOGIN_INFO_MSG = "Incorrect login information.";
 
-
     @iOSFindBy(accessibility = "icon back arrow")
     public WebElementFacade backArrowButton;
 
