@@ -1,6 +1,5 @@
 package basetest;
 
-import common.Utils;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -10,7 +9,6 @@ import steps.*;
 
 @RunWith(SerenityRunner.class)
 public class BaseTest {
-    protected static Utils utils;
 
     @Managed(driver = "appium")
     WebDriver driver;

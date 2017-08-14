@@ -2,9 +2,9 @@ package pages;
 
 import io.appium.java_client.pagefactory.iOSFindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.WebElement;
 
 public class CreateAccountPage extends AbstractPage {
+
     @iOSFindBy(accessibility = "icon back arrow")
     public WebElementFacade backArrowButton;
 
@@ -17,4 +17,6 @@ public class CreateAccountPage extends AbstractPage {
     @iOSFindBy(accessibility = "CREATE ACCOUNT!")
     public WebElementFacade createAccountButton;
 
+    @iOSFindBy(accessibility = "Create Account")
+    public WebElementFacade createAccountNavBar;
 }

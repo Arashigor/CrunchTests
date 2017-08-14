@@ -5,12 +5,14 @@ import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
-public class BackArrowBehaviorTest extends BaseTest {
+import static common.DataStore.REGISTERED_USER_EMAIL;
+import static common.DataStore.REGISTERED_USER_PASSWORD;
 
+public class SuccessfullyLoginInitialScreenTest extends BaseTest {
     @Test
-    @WithTagValuesOf({ "smoke" })
-    @Title("Back Arrow behavior test - 358224")
-    public void backArrowBehaviorTest() {
+    @WithTagValuesOf({ "smoke"})
+    @Title("Successfully create account from Initial Page test - 358225")
+    public void successfulLogin() {
         notificationPopupSteps.notificationIsVisible()
                 .pressAllow();
 
@@ -18,13 +20,6 @@ public class BackArrowBehaviorTest extends BaseTest {
                 .pressLoginButton();
 
         loginPageSteps.loginNavBarIsVisible()
-                .pressBackArrow();
-
-        initialPageSteps.initialPageIsVisible()
-                .pressCreateAccountButton();
-
-        createAccountSteps.createAccountPageIsVisible()
-                .pressBackArrow();
+                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
     }
-
 }

@@ -6,17 +6,20 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 
 public class FirstLaunchTest extends BaseTest {
+
     @Test
-    @WithTagValuesOf({ "smoke", "sanity", "production", "critical"})
-    @Title("First launch popup notification test")
+    @WithTagValuesOf({ "smoke"})
+    @Title("First launch popup notification test - 358219")
     public void firstLaunchAllowNotifications() {
-        notificationPopupSteps.pressAllow();
+        notificationPopupSteps.notificationIsVisible()
+                .pressAllow();
     }
 
     @Test
-    @WithTagValuesOf({ "smoke", "sanity", "production", "critical"})
-    @Title("First launch popup notification test")
+    @WithTagValuesOf({ "smoke"})
+    @Title("First launch popup notification test - 358219")
     public void firstLaunchDontAllowNotifications() {
-        notificationPopupSteps.pressDontAllow();
+        notificationPopupSteps.notificationIsVisible()
+                .pressDontAllow();
     }
 }
