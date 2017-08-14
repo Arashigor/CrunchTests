@@ -3,6 +3,7 @@ package tests;
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.Before;
 import org.junit.Test;
 
 import static common.DataStore.*;
@@ -12,18 +13,19 @@ import static pages.LoginPage.INCORRECT_LOGIN_INFO_MSG;
 
 public class ErrorLoginFromInitialScreenTest extends BaseTest {
 
+    @Before
+    public void before() {
+        notificationPopupSteps.notificationIsVisible()
+                .pressAllow();
+
+        initialPageSteps.initialPageIsVisible()
+                .pressLoginButton();
+    }
+
     @Test
     @WithTagValuesOf({ "smoke"})
     @Title("Log In errors test - 7565")
     public void loginErrorWithEmptyFieldsTest() {
-        notificationPopupSteps.notificationIsVisible()
-                              .pressAllow();
-
-
-        initialPageSteps.initialPageIsVisible()
-                        .pressLoginButton();
-
-
         loginPageSteps.loginNavBarIsVisible()
                       .logIn(BLANK_EMAIL,BLANK_PASSWORD).shouldSeeErrorMessage(EMPTY_CREDENTIALS_MSG)
                       .logIn(REGISTERED_USER_EMAIL,BLANK_PASSWORD).shouldSeeErrorMessage(CORRECT_EMAIL_NO_PASSWORD_MSG)
