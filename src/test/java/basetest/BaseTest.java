@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import pages.AccountPage;
 import steps.*;
 
 @RunWith(SerenityRunner.class)
@@ -27,6 +28,12 @@ public class BaseTest {
 
     @Steps
     protected PremiumSubsSteps premiumSubsSteps;
+
+    @Steps
+    protected AccountPageSteps accountPageSteps;
+
+    @Steps
+    protected BottomNavigationBarSteps bottomNavBarSteps;
 
     //...
 }

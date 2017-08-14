@@ -9,10 +9,7 @@ import org.junit.Test;
 public class BackArrowBehaviorTest extends BaseTest {
 
     @Before
-    public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
-    }
+    public void before() {}
 
     @Test
     @WithTagValuesOf({ "smoke" })

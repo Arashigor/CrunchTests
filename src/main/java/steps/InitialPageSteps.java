@@ -18,6 +18,12 @@ public class InitialPageSteps extends ScenarioSteps {
         return this;
     }
 
+    @Step("Press Just Explore button")
+    public InitialPageSteps pressJustExplore() {
+        initialPage.clickOnElement(initialPage.justExploreButton);
+        return this;
+    }
+
     @Step("Press Log In button")
     public InitialPageSteps pressLoginButton() {
         initialPage.clickOnElement(initialPage.loginButton);

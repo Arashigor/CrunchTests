@@ -5,6 +5,9 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class InitialPage extends AbstractPage {
 
+    @iOSFindBy(accessibility = "Just explore")
+    public WebElementFacade justExploreButton;
+
     @iOSFindBy(accessibility = "hime-wink-peace")
     public WebElementFacade mascotLogo;
 

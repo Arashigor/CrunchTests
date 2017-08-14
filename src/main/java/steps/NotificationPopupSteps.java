@@ -8,6 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class NotificationPopupSteps extends ScenarioSteps {
+
     private NotificationPopupPage popupPage;
 
     @Step("Notification PopUp should be visible")
