@@ -20,7 +20,7 @@ public class NavigationBetweenHomePageTabsTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"smoke"})
-    @Title("Successfully Loged In from Account screen - 377796")
+    @Title("Navigation between the tabs - 377796")
     public void navigationBetweenTabsTest() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
