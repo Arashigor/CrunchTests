@@ -9,6 +9,7 @@ public class LoginPage extends AbstractPage {
     public static final String EMPTY_CREDENTIALS_MSG = "You forgot to put in your User Name or Email.";
     public static final String CORRECT_EMAIL_NO_PASSWORD_MSG = "You forgot to put in your password.";
     public static final String INCORRECT_LOGIN_INFO_MSG = "Incorrect login information.";
+    public static final String CORRECT_LOGIN_INFO_WRONPASSWORD_MSG = "Incorrect login information.";
 
     private static final By staticTextList = By.className("XCUIElementTypeStaticText");
 
@@ -21,11 +22,8 @@ public class LoginPage extends AbstractPage {
     @iOSFindBy(className = "XCUIElementTypeSecureTextField")
     public WebElementFacade passwordField;
 
-    @iOSFindBy(accessibility = "LOG IN")
+    @iOSFindBy(accessibility = "LOG IN", className = "XCUIElementTypeButton")
     public WebElementFacade loginButton;
-
-    @iOSFindBy(accessibility = "Log In")
-    public WebElementFacade logInNavigationBar;
 
     public WebElementFacade getError() {
         return findAll(staticTextList).get(1);

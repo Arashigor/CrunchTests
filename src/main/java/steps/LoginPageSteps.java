@@ -55,10 +55,10 @@ public class LoginPageSteps extends ScenarioSteps {
     }
 
     @Step("Login NavigationBar should be visible")
-    public LoginPageSteps loginNavBarIsVisible() {
-        loginPage.logInNavigationBar.waitUntilVisible();
+    public LoginPageSteps loginPageIsVisible() {
+        loginPage.loginButton.waitUntilVisible();
         assertThat("Should see login NavigationBar",
-                loginPage.logInNavigationBar.isCurrentlyVisible(), is(true));
+                loginPage.loginButton.isCurrentlyVisible(), is(true));
         return this;
     }
 }

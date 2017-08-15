@@ -18,7 +18,7 @@ public class BackArrowBehaviorTest extends BaseTest {
         initialPageSteps.initialPageIsVisible()
                 .pressLoginButton();
 
-        loginPageSteps.loginNavBarIsVisible()
+        loginPageSteps.loginPageIsVisible()
                 .pressBackArrow();
 
         initialPageSteps.initialPageIsVisible()

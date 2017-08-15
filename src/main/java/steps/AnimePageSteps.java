@@ -14,4 +14,9 @@ public class AnimePageSteps extends ScenarioSteps {
         return this;
     }
 
+    @Step("Scroll '{0}'")
+    public AnimePageSteps scrollPage(String direction) {
+        animePage.scroll(direction);
+        return this;
+    }
 }

@@ -6,6 +6,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Before;
 import org.junit.Test;
 
+import static common.DataStore.ACCOUNT_NAV;
+import static common.DataStore.ANIME_NAV;
+
 public class AccountScreenGUITest extends BaseTest {
     @Before
     public void before() {
@@ -21,9 +24,9 @@ public class AccountScreenGUITest extends BaseTest {
                         .pressJustExplore();
 
         bottomNavBarSteps.addAllButtonsToList()
-                         .buttonIsSelected("Anime")
-                         .selectButton("Account")
-                         .buttonIsSelected("Account");
+                         .buttonIsSelected(ANIME_NAV)
+                         .selectButton(ACCOUNT_NAV)
+                         .buttonIsSelected(ACCOUNT_NAV);
 
         accountPageSteps.accountPageIsVisible();
     }

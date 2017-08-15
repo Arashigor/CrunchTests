@@ -6,6 +6,9 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Before;
 import org.junit.Test;
 
+import static common.DataStore.ANIME_NAV;
+import static common.DataStore.NEW_NAV;
+
 public class StartButtonBehaviorTest extends BaseTest {
 
     @Before
@@ -26,9 +29,9 @@ public class StartButtonBehaviorTest extends BaseTest {
         animePageSteps.animePageIsVisible();
 
         bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected("Anime")
-                .selectButton("New")
-                .buttonIsSelected("New");
+                .buttonIsSelected(ANIME_NAV)
+                .selectButton(NEW_NAV)
+                .buttonIsSelected(NEW_NAV);
 
         newPageSteps.newAnimePageIsVisible()
                 .clickOnAnimeTitle();

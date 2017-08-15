@@ -20,4 +20,21 @@ public class AccountPageSteps {
                 is(true));
         return this;
     }
+
+    @Step("Press Log In button")
+    public AccountPageSteps pressLogin() {
+        accountPage.clickOnElement(accountPage.loginButton);
+        return this;
+    }
+
+    @Step("User logged in")
+    public AccountPageSteps isUserLoggedIn() {
+        assertThat("Should not see Log in button",
+                accountPage.loginButton.isCurrentlyVisible(), is(false));
+
+        accountPage.waitForElement(accountPage.userEmailButton);
+        assertThat("Should be logged in",
+                accountPage.userEmailButton.isCurrentlyVisible(), is(true));
+        return this;
+    }
 }

@@ -34,24 +34,9 @@ public class BottomNavigationBarPage extends AbstractPage {
     }
 
     public WebElementFacade getRequiredNavBarButton(String buttonText) {
-
-//        WebElementFacade b =  navBarButtons.stream()
-//                .findFirst()
-//                .filter(w -> w.getAttribute("name").equals(buttonText))
-//                .orElse(null);
-
-//        System.out.println(b.getAttribute("name"));
-//        System.out.println(buttonText);
-//        System.out.println(b.getAttribute("name").equals(buttonText));
-
-//        return b;
-
-        for (WebElementFacade webElementFacade : navBarButtons) {
-            String name = webElementFacade.getAttribute("name");
-            if (name != null && name.equals(buttonText)) {
-                return webElementFacade;
-            }
-        }
-        return null;
+       return navBarButtons.stream()
+                .filter(w -> w.getAttribute("name").equals(buttonText))
+                .findAny()
+                .orElse(null);
     }
 }

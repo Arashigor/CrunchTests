@@ -49,5 +49,8 @@ public class BaseTest {
     @Steps
     protected NewPageSteps newPageSteps;
 
+    @Steps
+    protected HomePageSteps homePageSteps;
+
     //...
 }

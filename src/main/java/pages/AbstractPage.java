@@ -9,6 +9,8 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebElement;
 
+import java.util.HashMap;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public abstract class AbstractPage extends PageObject {
@@ -43,7 +45,18 @@ public abstract class AbstractPage extends PageObject {
         return (MobileElement) ((WebElementFacade) element).getWrappedElement();
     }
 
-    //Prevents null ptr
+    public void scroll(String direction) {
+        HashMap<String, String> scrollObject = new HashMap<>();
+        scrollObject.put("direction", direction);
+        evaluateJavascript("mobile: scroll", scrollObject);
+    }
+
+    public void swipe(String direction) {
+        HashMap<String, String> swipeObject = new HashMap<>();
+        swipeObject.put("direction", direction);
+        evaluateJavascript("mobile: swipe", swipeObject);
+    }
+
     public boolean isVisible(WebElementFacade element) {
         System.out.println(">> in visible");
         try {

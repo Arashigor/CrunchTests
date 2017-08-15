@@ -8,28 +8,32 @@ import org.junit.Test;
 
 import static common.DataStore.*;
 
-public class SuccessfullyLoginInitialScreenTest extends BaseTest {
+public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
 
     @Before
     public void before() {
         notificationPopupSteps.notificationIsVisible()
                 .pressAllow();
+
+        initialPageSteps.initialPageIsVisible()
+                .pressJustExplore();
+
     }
 
     @Test
-    @WithTagValuesOf({ "smoke"})
-    @Title("Successfully create account from Initial Page test - 358225")
-    public void successfulLogin() {
-        initialPageSteps.initialPageIsVisible()
-                .pressLoginButton();
-
-        loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
-
+    @WithTagValuesOf({"smoke"})
+    @Title("Successfully Loged In from Account screen - 7566")
+    public void successfullyLogInAccountScree() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
                 .selectButton(ACCOUNT_NAV)
                 .buttonIsSelected(ACCOUNT_NAV);
+
+        accountPageSteps.accountPageIsVisible()
+                .pressLogin();
+
+        loginPageSteps.loginPageIsVisible()
+                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
         accountPageSteps.isUserLoggedIn();
     }
