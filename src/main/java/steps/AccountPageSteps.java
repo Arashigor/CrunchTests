@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import pages.AccountPage;
 import pages.BottomNavigationBarPage;
 

@@ -61,4 +61,16 @@ public class LoginPageSteps extends ScenarioSteps {
                 loginPage.loginButton.isCurrentlyVisible(), is(true));
         return this;
     }
+
+    @Step("Press X button")
+    public LoginPageSteps pressXButton() {
+        loginPage.clickOnElement(loginPage.XButton);
+        return this;
+    }
+
+    @Step("Press Later button")
+    public LoginPageSteps pressLater() {
+        loginPage.clickOnElement(loginPage.laterButton);
+        return this;
+    }
 }

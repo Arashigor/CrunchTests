@@ -25,6 +25,12 @@ public class LoginPage extends AbstractPage {
     @iOSFindBy(accessibility = "LOG IN", className = "XCUIElementTypeButton")
     public WebElementFacade loginButton;
 
+    @iOSFindBy(accessibility = "button close")
+    public WebElementFacade XButton;
+
+    @iOSFindBy(accessibility = "Later")
+    public WebElementFacade laterButton;
+
     public WebElementFacade getError() {
         return findAll(staticTextList).get(1);
     }

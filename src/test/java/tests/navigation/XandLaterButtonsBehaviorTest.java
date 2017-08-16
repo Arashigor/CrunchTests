@@ -1,4 +1,4 @@
-package tests.login;
+package tests.navigation;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -8,8 +8,7 @@ import org.junit.Test;
 
 import static common.DataStore.*;
 
-public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
-
+public class XandLaterButtonsBehaviorTest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.notificationIsVisible()
@@ -21,9 +20,9 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
     }
 
     @Test
-    @WithTagValuesOf({"smoke"})
-    @Title("Successfully Loged In from Account screen - 7566")
-    public void successfullyLogInAccountScree() {
+    @WithTagValuesOf({"other"})
+    @Title("'X' & 'Later' buttons behavior - 7564")
+    public void xAndLaterButtonsTest() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
                 .selectButton(ACCOUNT_NAV)
@@ -33,8 +32,15 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
                 .pressLogin();
 
         loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
+                .pressXButton();
 
-        accountPageSteps.isUserLoggedIn();
+        accountPageSteps.accountPageIsVisible()
+                .pressLogin();
+
+        loginPageSteps.loginPageIsVisible()
+                .pressXButton();
+
+        accountPageSteps.accountPageIsVisible();
     }
+
 }

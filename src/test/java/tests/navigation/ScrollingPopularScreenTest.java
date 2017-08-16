@@ -1,4 +1,4 @@
-package tests;
+package tests.navigation;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
