@@ -7,6 +7,9 @@ import pages.LoginPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static pages.LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG;
+import static pages.LoginPage.EMPTY_CREDENTIALS_MSG;
+import static pages.LoginPage.INCORRECT_LOGIN_INFO_MSG;
 
 public class LoginPageSteps extends ScenarioSteps {
 
@@ -48,9 +51,25 @@ public class LoginPageSteps extends ScenarioSteps {
 
     @Step("User should see error message: '{0}'")
     public LoginPageSteps shouldSeeErrorMessage(String errorMessage) {
-        loginPage.getError().waitUntilVisible();
+
+        String error = "";
+        switch (errorMessage) {
+            case EMPTY_CREDENTIALS_MSG :
+                loginPage.waitForElement(loginPage.errorEmptyCredentials);
+                error = loginPage.errorEmptyCredentials.getText();
+                break;
+            case CORRECT_EMAIL_NO_PASSWORD_MSG :
+                loginPage.waitForElement(loginPage.errorEmptyPassword);
+                error = loginPage.errorEmptyPassword.getText();
+                break;
+            case INCORRECT_LOGIN_INFO_MSG :
+                loginPage.waitForElement(loginPage.errorIncorrectMailPass);
+                error = loginPage.errorIncorrectMailPass.getText();
+                break;
+        }
+        System.out.println(error);
         assertThat("Should see error message",
-              loginPage.getError().getText().equals(errorMessage), is(true));
+                error.equals(errorMessage) , is(true));
         return this;
     }
 

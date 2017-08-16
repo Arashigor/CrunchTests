@@ -1,4 +1,4 @@
-package tests.navigation;
+package tests.home;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -29,9 +29,9 @@ public class NavigationBetweenHomePageTabsTest extends BaseTest {
 
         homePageSteps.homePageQueueIsVisible();
 
-        homePageSteps.swipePage("left")
+        homePageSteps.swipePage(DIRECTION_LEFT)
                 .homePageHistoryIsVisible()
-                .swipePage("right")
+                .swipePage(DIRECTION_RIGHT)
                 .homePageQueueIsVisible();
     }
 

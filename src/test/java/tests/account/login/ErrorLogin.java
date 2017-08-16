@@ -1,4 +1,4 @@
-package tests.login;
+package tests.account.login;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -7,12 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static common.DataStore.*;
-import static pages.LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG;
-import static pages.LoginPage.EMPTY_CREDENTIALS_MSG;
-import static pages.LoginPage.INCORRECT_LOGIN_INFO_MSG;
-import static pages.LoginPage.CORRECT_LOGIN_INFO_WRONPASSWORD_MSG;
+import static pages.LoginPage.*;
 
-public class ErrorLoginFromInitialScreenTest extends BaseTest {
+public class ErrorLogin extends BaseTest {
 
     @Before
     public void before() {
@@ -20,13 +17,22 @@ public class ErrorLoginFromInitialScreenTest extends BaseTest {
                 .pressAllow();
 
         initialPageSteps.initialPageIsVisible()
-                .pressLoginButton();
+                .pressJustExplore();
     }
 
     @Test
     @WithTagValuesOf({ "smoke"})
     @Title("Log In errors test - 7565")
     public void loginErrorWithEmptyFieldsTest() {
+
+        bottomNavBarSteps.addAllButtonsToList()
+                .buttonIsSelected(ANIME_NAV)
+                .selectButton(ACCOUNT_NAV)
+                .buttonIsSelected(ACCOUNT_NAV);
+
+        accountPageSteps.accountPageIsVisible()
+                .pressLogin();
+
         loginPageSteps.loginPageIsVisible()
                 .logIn(BLANK_EMAIL,BLANK_PASSWORD)
                 .shouldSeeErrorMessage(EMPTY_CREDENTIALS_MSG)
@@ -35,6 +41,6 @@ public class ErrorLoginFromInitialScreenTest extends BaseTest {
                 .logIn(WRONG_EMAIL, REGISTERED_USER_PASSWORD)
                 .shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG)
                 .logIn(REGISTERED_USER_EMAIL, WRONG_PASSWORD)
-                .shouldSeeErrorMessage(CORRECT_LOGIN_INFO_WRONPASSWORD_MSG);
+                .shouldSeeErrorMessage(INCORRECT_LOGIN_INFO_MSG);
     }
 }

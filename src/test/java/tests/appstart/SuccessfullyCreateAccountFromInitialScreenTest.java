@@ -1,4 +1,4 @@
-package tests.register;
+package tests.appstart;
 
 import basetest.BaseTest;
 import common.DataStore;

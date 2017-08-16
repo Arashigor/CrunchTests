@@ -23,6 +23,8 @@ public class DataStore {
 
     public static final String DIRECTION_DOWN = "down";
     public static final String DIRECTION_UP = "up";
+    public static final String DIRECTION_LEFT = "left";
+    public static final String DIRECTION_RIGHT = "right";
 
     public static String randomEmail() {
         return EMAIL_BASE + (int) System.currentTimeMillis() + EMAIL_HOST;

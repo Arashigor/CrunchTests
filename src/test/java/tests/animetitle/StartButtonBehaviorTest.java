@@ -1,4 +1,4 @@
-package tests.functional;
+package tests.animetitle;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;

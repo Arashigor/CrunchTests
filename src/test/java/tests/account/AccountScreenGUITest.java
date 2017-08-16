@@ -1,4 +1,4 @@
-package tests.navigation;
+package tests.account;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -13,7 +13,7 @@ public class AccountScreenGUITest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+                .pressDontAllow();
     }
 
     @Test

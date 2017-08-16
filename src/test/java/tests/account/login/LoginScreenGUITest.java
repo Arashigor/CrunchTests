@@ -1,4 +1,4 @@
-package tests.navigation;
+package tests.account.login;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static common.DataStore.*;
 
-public class XandLaterButtonsBehaviorTest extends BaseTest {
+public class LoginScreenGUITest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.notificationIsVisible()
@@ -21,8 +21,8 @@ public class XandLaterButtonsBehaviorTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"other"})
-    @Title("'X' & 'Later' buttons behavior - 7564")
-    public void xAndLaterButtonsTest() {
+    @Title("GUI of the 'Log In' screen - 7563")
+    public void logInGUITest() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
                 .selectButton(ACCOUNT_NAV)
@@ -31,16 +31,6 @@ public class XandLaterButtonsBehaviorTest extends BaseTest {
         accountPageSteps.accountPageIsVisible()
                 .pressLogin();
 
-        loginPageSteps.loginPageIsVisible()
-                .pressXButton();
-
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
-
-        loginPageSteps.loginPageIsVisible()
-                .pressXButton();
-
-        accountPageSteps.accountPageIsVisible();
+        loginPageSteps.loginPageIsVisible();
     }
-
 }

@@ -11,6 +11,6 @@ public class NotificationPopupPage extends AbstractPage {
     @iOSFindBy(accessibility = "Don’t Allow")
     public WebElementFacade popupDeny;
 
-    @iOSFindBy(accessibility = "“Crunchyroll Beta” Would Like to Send You Notifications")
+    @iOSFindBy(accessibility = "“Crunchyroll” Would Like to Send You Notifications")
     public WebElementFacade popupWindow;
 }

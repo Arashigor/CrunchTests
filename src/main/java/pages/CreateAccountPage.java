@@ -17,6 +17,9 @@ public class CreateAccountPage extends AbstractPage {
     @iOSFindBy(accessibility = "CREATE ACCOUNT!")
     public WebElementFacade createAccountButton;
 
-    @iOSFindBy(accessibility = "Create Account")
+    @iOSFindBy(accessibility = "Create Account", className = "XCUIElementTypeNavigationBar")
     public WebElementFacade createAccountNavBar;
+
+    @iOSFindBy(accessibility = "icAccountBearLGiphone")
+    public WebElementFacade createAccountLogo;
 }

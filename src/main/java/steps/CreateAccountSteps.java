@@ -47,9 +47,9 @@ public class CreateAccountSteps extends ScenarioSteps {
 
     @Step("Create accout page is visible")
     public CreateAccountSteps createAccountPageIsVisible() {
-        createAccountPage.createAccountNavBar.waitUntilVisible();
         assertThat("Should see Create Account Navigation Bar",
-                createAccountPage.createAccountNavBar.isCurrentlyVisible(), is(true));
+                createAccountPage.waitForElement(createAccountPage.createAccountLogo).isCurrentlyVisible(),
+                is(true));
         return this;
     }
 }

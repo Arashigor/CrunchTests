@@ -1,4 +1,4 @@
-package tests;
+package tests.appstart;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;

@@ -1,7 +1,6 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import pages.AccountPage;
 import pages.BottomNavigationBarPage;
 
@@ -26,6 +25,12 @@ public class AccountPageSteps {
     public AccountPageSteps pressLogin() {
         accountPage.clickOnElement(accountPage.loginButton);
         return this;
+    }
+
+    @Step("Press Create Account button")
+    public AccountPageSteps pressCreateAccountButton() {
+        accountPage.clickOnElement(accountPage.createAccountButton);
+        return  this;
     }
 
     @Step("User logged in")
