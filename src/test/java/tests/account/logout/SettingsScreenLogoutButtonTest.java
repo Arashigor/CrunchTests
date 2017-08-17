@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static common.DataStore.*;
 
-public class AccountScreenLogOutXTest extends BaseTest {
+public class SettingsScreenLogoutButtonTest extends BaseTest {
 
     @Before
     public void before() {
@@ -22,8 +22,8 @@ public class AccountScreenLogOutXTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"smoke"})
-    @Title("Account screen- Log Out x button - 1399961")
-    public void logOutButtonsTest() {
+    @Title("Settings screen - Log Out button - 7574")
+    public void logOutButtonTest() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
                 .selectButton(ACCOUNT_NAV)
@@ -36,10 +36,14 @@ public class AccountScreenLogOutXTest extends BaseTest {
                 .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
         accountPageSteps.accountPageIsVisible()
-                .isUserLoggedIn()
-                .pressXtoLogout()
-                .isLogoutPopUpVisible()
-                .pressLogOutPopUp()
+                .isUserLoggedIn();
+
+        accountPageSteps.pressSettingsButton();
+
+        settingsSteps.isSettingPageVisible()
+                .scrollToLogOut()
+                .logOut()
                 .isUserLoggedOut();
     }
+
 }

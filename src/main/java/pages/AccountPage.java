@@ -18,6 +18,9 @@ public class AccountPage extends AbstractPage {
     @iOSFindBy(accessibility = "Create Account")
     public WebElementFacade createAccountButton;
 
+    @iOSFindBy(accessibility = "Settings")
+    public WebElementFacade settingsButton;
+
     @iOSFindBy(accessibility = REGISTERED_USER_EMAIL)
     public WebElementFacade userEmailButton;
 

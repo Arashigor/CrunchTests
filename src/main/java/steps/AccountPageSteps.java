@@ -33,6 +33,12 @@ public class AccountPageSteps {
         return  this;
     }
 
+    @Step("Press Settings button")
+    public AccountPageSteps pressSettingsButton() {
+        accountPage.clickOnElement(accountPage.settingsButton);
+        return this;
+    }
+
     @Step("User logged in")
     public AccountPageSteps isUserLoggedIn() {
         assertThat("Should not see Log in button",
