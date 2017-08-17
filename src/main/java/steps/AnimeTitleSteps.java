@@ -9,8 +9,8 @@ import static org.hamcrest.core.Is.is;
 public class AnimeTitleSteps {
     private AnimeTitlePage animeTitlePage;
 
-    @Step("Anime Title Page is visible")
-    public AnimeTitleSteps animeTitlePageIsVisible() {
+    @Step("Should see Anime title Page")
+    public AnimeTitleSteps shouldSeeAnimeTitlePage() {
         assertThat("Should be selected 'New' in bottom navigation bar",
                 animeTitlePage.startButton.isVisible(),
                 is(true));
@@ -19,7 +19,6 @@ public class AnimeTitleSteps {
 
     @Step("Press Start button")
     public AnimeTitleSteps pressStartButton() {
-        animeTitlePage.waitForElement(animeTitlePage.startButton);
         animeTitlePage.clickOnElement(animeTitlePage.startButton);
         return this;
     }

@@ -11,11 +11,9 @@ import static common.DataStore.*;
 public class XandLaterButtonsBehaviorTest extends BaseTest {
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -23,24 +21,18 @@ public class XandLaterButtonsBehaviorTest extends BaseTest {
     @WithTagValuesOf({"other"})
     @Title("'X' & 'Later' buttons behavior - 7564")
     public void xAndLaterButtonsTest() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-        loginPageSteps.loginPageIsVisible()
-                .pressXButton();
+        loginPageSteps.pressXButton();
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-        loginPageSteps.loginPageIsVisible()
-                .pressLater();
+        loginPageSteps.pressLater();
 
-        accountPageSteps.accountPageIsVisible();
+        accountPageSteps.shouldSeeAccountPage();
     }
 
 }

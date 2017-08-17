@@ -10,8 +10,8 @@ import static org.hamcrest.core.Is.is;
 public class InitialPageSteps extends ScenarioSteps {
     private InitialPage initialPage;
 
-    @Step("InitialPage is visible")
-    public InitialPageSteps initialPageIsVisible() {
+    @Step("Should see Initial Page")
+    public InitialPageSteps shouldSeeInitialPage() {
         initialPage.mascotLogo.waitUntilVisible();
         assertThat("Should see Crunchyroll mascot logo",
                 initialPage.mascotLogo.isCurrentlyVisible(), is(true));

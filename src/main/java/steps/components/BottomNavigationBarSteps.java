@@ -1,15 +1,15 @@
-package steps;
+package steps.components;
 
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import pages.BottomNavigationBarPage;
+import components.BottomNavigationBar;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class BottomNavigationBarSteps {
 
-    private BottomNavigationBarPage bottomNavBarPage;
+    private BottomNavigationBar bottomNavBarPage;
 
     @Step("Initialize list with all bottom NavBar buttons")
     public BottomNavigationBarSteps addAllButtonsToList() {
@@ -21,8 +21,8 @@ public class BottomNavigationBarSteps {
         return this;
     }
 
-    @Step("Correct button is selected - '{0}'")
-    public BottomNavigationBarSteps buttonIsSelected(String buttonText) {
+    @Step("Should be selected correct button - '{0}'")
+    public BottomNavigationBarSteps shouldBeSelectedCorrectButton(String buttonText) {
         WebElementFacade button = bottomNavBarPage.getSelectedNavBarButton();
 
         assertThat("Should be selected correct button",

@@ -1,9 +1,11 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.BottomNavigationBarPage;
+import components.BottomNavigationBar;
 import pages.NewPage;
+import steps.components.BottomNavigationBarSteps;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -11,10 +13,12 @@ import static org.hamcrest.core.Is.is;
 public class NewPageSteps extends ScenarioSteps {
 
     private NewPage newPage;
-    private BottomNavigationBarPage bottomNavigationBarPage;
 
-    @Step("New Anime Page is visible")
-    public NewPageSteps newAnimePageIsVisible() {
+    @Steps
+    public BottomNavigationBarSteps bottomNavBarSteps;
+
+    @Step("Should see New Anime Page")
+    public NewPageSteps shouldSeeNewAnimePage() {
         //TODO check
         return this;
     }

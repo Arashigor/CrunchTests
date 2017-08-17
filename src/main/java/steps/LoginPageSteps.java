@@ -7,9 +7,6 @@ import pages.LoginPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static pages.LoginPage.CORRECT_EMAIL_NO_PASSWORD_MSG;
-import static pages.LoginPage.EMPTY_CREDENTIALS_MSG;
-import static pages.LoginPage.INCORRECT_LOGIN_INFO_MSG;
 
 public class LoginPageSteps extends ScenarioSteps {
 
@@ -49,15 +46,15 @@ public class LoginPageSteps extends ScenarioSteps {
         return this;
     }
 
-    @Step("User should see error message: '{0}'")
+    @Step("Should see error message: '{0}'")
     public LoginPageSteps shouldSeeErrorMessage(String errorMessage) {
         assertThat("Should see error message",
                 false , is(true));
         return this;
     }
 
-    @Step("Login NavigationBar should be visible")
-    public LoginPageSteps loginPageIsVisible() {
+    @Step("Should see Login Page")
+    public LoginPageSteps shouldSeeLoginPage() {
         loginPage.loginButton.waitUntilVisible();
         assertThat("Should see login NavigationBar",
                 loginPage.loginButton.isCurrentlyVisible(), is(true));

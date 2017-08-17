@@ -15,17 +15,18 @@ public class BackArrowBehaviorTest extends BaseTest {
     @WithTagValuesOf({ "smoke" })
     @Title("Back Arrow behavior test - 358224")
     public void backArrowBehaviorTest() {
-        initialPageSteps.initialPageIsVisible()
+        initialPageSteps
                 .pressLoginButton();
 
-        loginPageSteps.loginPageIsVisible()
+        loginPageSteps.shouldSeeLoginPage()
                 .pressBackArrow();
 
-        initialPageSteps.initialPageIsVisible()
+        initialPageSteps.shouldSeeInitialPage()
                 .pressCreateAccountButton();
 
-        createAccountSteps.createAccountPageIsVisible()
-                .pressBackArrow();
+        createAccountSteps.pressBackArrow();
+
+        initialPageSteps.shouldSeeInitialPage();
     }
 
 }

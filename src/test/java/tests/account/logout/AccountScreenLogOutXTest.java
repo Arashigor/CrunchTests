@@ -12,11 +12,9 @@ public class AccountScreenLogOutXTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -24,22 +22,16 @@ public class AccountScreenLogOutXTest extends BaseTest {
     @WithTagValuesOf({"smoke"})
     @Title("Account screen- Log Out x button - 1399961")
     public void logOutButtonsTest() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-        loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
+        loginPageSteps.logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
-        accountPageSteps.accountPageIsVisible()
-                .isUserLoggedIn()
+        accountPageSteps
                 .pressXtoLogout()
-                .isLogoutPopUpVisible()
                 .pressLogOutPopUp()
-                .isUserLoggedOut();
+                .shouldBeLoggedOut();
     }
 }

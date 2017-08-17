@@ -1,9 +1,12 @@
 package pages;
 
 import common.DataStore;
+import components.BottomNavigationBar;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
+
+import java.util.List;
 
 import static common.DataStore.*;
 
@@ -39,7 +42,8 @@ public class AccountPage extends AbstractPage {
     private static final By allAccountButtons = By.className("XCUIElementTypeButton");
 
     public WebElementFacade getLogoutApprove() {
-        return findAll(allAccountButtons).get(findAll(allAccountButtons).size()-1);
+        List<WebElementFacade> list = findAll(allAccountButtons);
+        return list.get(list.size()-1);
     }
 
 }

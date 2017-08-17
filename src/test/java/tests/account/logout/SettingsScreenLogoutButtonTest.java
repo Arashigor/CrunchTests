@@ -12,11 +12,9 @@ public class SettingsScreenLogoutButtonTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -24,26 +22,20 @@ public class SettingsScreenLogoutButtonTest extends BaseTest {
     @WithTagValuesOf({"smoke"})
     @Title("Settings screen - Log Out button - 7574")
     public void logOutButtonTest() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-        loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
+        loginPageSteps.logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
-        accountPageSteps.accountPageIsVisible()
-                .isUserLoggedIn();
+        accountPageSteps.shouldBeLoggedIn();
 
         accountPageSteps.pressSettingsButton();
 
-        settingsSteps.isSettingPageVisible()
-                .scrollToLogOut()
+        settingsSteps.scrollToLogOut()
                 .logOut()
-                .isUserLoggedOut();
+                .shouldBeLoggedIn();
     }
 
 }

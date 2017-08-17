@@ -11,12 +11,13 @@ import static common.DataStore.ACCOUNT_NAV;
 import static common.DataStore.ANIME_NAV;
 
 public class AccountScreenGUITestFreeUser extends BaseTest {
+
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
+        notificationPopupSteps
                 .pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
+        initialPageSteps
                 .pressJustExplore();
 
     }
@@ -25,28 +26,22 @@ public class AccountScreenGUITestFreeUser extends BaseTest {
     @WithTagValuesOf({"other"})
     @Title("GUI of the 'Account' - Free Users - 7573")
     public void successfullyCreateAccountScreen() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressCreateAccountButton();
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        createAccountSteps.createAccountPageIsVisible()
-                .createAccount(randomEmail(), REGISTERED_USER_PASSWORD);
+        accountPageSteps.pressCreateAccountButton();
 
-        premiumSubsSteps.premiumMembershipNavBarIsVisible()
-                .pressLaterButton();
+        createAccountSteps.createAccount(randomEmail(), REGISTERED_USER_PASSWORD);
 
-        accountPageSteps.isUserLoggedIn();
+        premiumSubsSteps.pressLaterButton();
 
-        bottomNavBarSteps.buttonIsSelected(ACCOUNT_NAV)
-                .selectButton(ANIME_NAV)
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        accountPageSteps.shouldBeLoggedIn();
 
-        accountPageSteps.isUserLoggedIn();
+        accountPageSteps.bottomNavBarSteps.selectButton(ANIME_NAV)
+                .selectButton(ACCOUNT_NAV);
+
+        accountPageSteps.shouldBeLoggedIn();
+
     }
 }

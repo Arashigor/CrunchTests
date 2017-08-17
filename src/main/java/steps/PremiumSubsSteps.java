@@ -11,8 +11,8 @@ public class PremiumSubsSteps extends ScenarioSteps {
 
     private PremiumSubsPage premiumSubsPage;
 
-    @Step("Premium Membership Page is visible")
-    public PremiumSubsSteps premiumMembershipNavBarIsVisible() {
+    @Step("Should see Premium Membership Page")
+    public PremiumSubsSteps shouldSeePremMembshipPage() {
         premiumSubsPage.premiumMembershipNavBar.waitUntilVisible();
         assertThat("Should see login NavigationBar",
                 premiumSubsPage.premiumMembershipNavBar.isCurrentlyVisible(), is(true));

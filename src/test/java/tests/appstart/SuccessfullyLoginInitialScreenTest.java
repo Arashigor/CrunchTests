@@ -12,25 +12,20 @@ public class SuccessfullyLoginInitialScreenTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
     }
 
     @Test
     @WithTagValuesOf({ "smoke"})
     @Title("Successfully create account from Initial Page test - 358225")
     public void successfulLogin() {
-        initialPageSteps.initialPageIsVisible()
-                .pressLoginButton();
+        initialPageSteps.pressLoginButton();
 
-        loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
+        loginPageSteps.logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.isUserLoggedIn();
+        accountPageSteps.shouldBeLoggedIn();
     }
 }

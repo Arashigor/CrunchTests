@@ -9,6 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class CreateAccountSteps extends ScenarioSteps {
+
     private CreateAccountPage createAccountPage;
 
     @Step("Press Back Arrow")
@@ -57,8 +58,8 @@ public class CreateAccountSteps extends ScenarioSteps {
         return this;
     }
 
-    @Step("Create accout page is visible")
-    public CreateAccountSteps createAccountPageIsVisible() {
+    @Step("Should see Account Page is visible")
+    public CreateAccountSteps shouldSeeAccountPage() {
         assertThat("Should see Create Account Navigation Bar",
                 createAccountPage.waitForElement(createAccountPage.createAccountLogo).isCurrentlyVisible(),
                 is(true));

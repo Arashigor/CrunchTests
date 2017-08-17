@@ -12,8 +12,8 @@ public class SettingsSteps extends ScenarioSteps {
 
     private SettingsPage settingsPage;
 
-    @Step("Settings page is visible")
-    public SettingsSteps isSettingPageVisible() {
+    @Step("Should see Settings Page")
+    public SettingsSteps shouldSeeSettingsPage() {
         settingsPage.waitForElement(settingsPage.settingsNavBar);
         assertThat("Should see Settings page",
                 settingsPage.settingsNavBar.isCurrentlyVisible(),
@@ -23,7 +23,7 @@ public class SettingsSteps extends ScenarioSteps {
 
     @Step("Scroll to Log Out button")
     public SettingsSteps scrollToLogOut() {
-        while (!settingsPage.logOutButton.isVisible()) {
+        for (int i = 0; i < 10 && !settingsPage.logOutButton.isVisible(); i++) {
             settingsPage.scroll(DIRECTION_DOWN);
         }
         return this;
@@ -35,9 +35,9 @@ public class SettingsSteps extends ScenarioSteps {
         return this;
     }
 
-    @Step("User logged out")
-    public SettingsSteps isUserLoggedOut() {
-        assertThat("Shold not see Log Out button",
+    @Step("Should be logged in")
+    public SettingsSteps shouldBeLoggedIn() {
+        assertThat("Should not see Log Out button",
                 settingsPage.logOutButton.isCurrentlyVisible(),
                 is(false));
         return this;
