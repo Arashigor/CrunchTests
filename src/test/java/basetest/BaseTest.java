@@ -52,5 +52,7 @@ public class BaseTest {
     @Steps
     protected HomePageSteps homePageSteps;
 
+    @Steps
+    protected SettingsSteps settingsSteps;
     //...
 }
