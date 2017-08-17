@@ -45,6 +45,18 @@ public class CreateAccountSteps extends ScenarioSteps {
         return this;
     }
 
+    @Step("Press X button")
+    public CreateAccountSteps pressXButton() {
+        createAccountPage.clickOnElement(createAccountPage.XButton);
+        return this;
+    }
+
+    @Step("Press Later button")
+    public CreateAccountSteps pressLater() {
+        createAccountPage.clickOnElement(createAccountPage.laterButton);
+        return this;
+    }
+
     @Step("Create accout page is visible")
     public CreateAccountSteps createAccountPageIsVisible() {
         assertThat("Should see Create Account Navigation Bar",

@@ -1,4 +1,4 @@
-package tests.account.register;
+package tests.account.create;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;

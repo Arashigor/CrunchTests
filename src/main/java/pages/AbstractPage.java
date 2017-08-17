@@ -57,6 +57,18 @@ public abstract class AbstractPage extends PageObject {
         evaluateJavascript("mobile: swipe", swipeObject);
     }
 
+
+    public boolean tapOnElement(WebElementFacade el) {
+        try {
+            HashMap<String, String> tapObject = new HashMap<>();
+            tapObject.put("element", toMobileElem(el).getId());
+            evaluateJavascript("mobile:tap", tapObject);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public boolean isVisible(WebElementFacade element) {
         System.out.println(">> in visible");
         try {

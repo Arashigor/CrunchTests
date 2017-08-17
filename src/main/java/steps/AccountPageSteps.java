@@ -43,4 +43,39 @@ public class AccountPageSteps {
                 accountPage.userEmailButton.isCurrentlyVisible(), is(true));
         return this;
     }
+
+    @Step("Press X to Log Out")
+    public AccountPageSteps pressXtoLogout() {
+        accountPage.clickOnElement(accountPage.logOutXbutton);
+        return this;
+    }
+
+    @Step("Is User logged out")
+    public AccountPageSteps isUserLoggedOut() {
+
+        accountPage.waitForElement(accountPage.loginButton);
+
+        assertThat("Should see Log in button",
+                accountPage.loginButton.isCurrentlyVisible(), is(true));
+
+        assertThat("Should not see email in",
+                accountPage.userEmailButton.isCurrentlyVisible(), is(false));
+        return this;
+    }
+
+    @Step("Is Logout PopUp visible")
+    public AccountPageSteps isLogoutPopUpVisible() {
+        accountPage.waitForElement(accountPage.logoutPopUp);
+
+        assertThat("Should see LogOut PopUp",
+                accountPage.logoutPopUp.isCurrentlyVisible(), is(true));
+
+        return this;
+    }
+
+    @Step("Press Log Out on PopUp window")
+    public AccountPageSteps pressLogOutPopUp() {
+        accountPage.clickOnElement(accountPage.getLogoutApprove());
+        return this;
+    }
 }

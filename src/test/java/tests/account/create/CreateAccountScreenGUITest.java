@@ -1,4 +1,4 @@
-package tests.account.login;
+package tests.account.create;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -6,10 +6,10 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Before;
 import org.junit.Test;
 
-import static common.DataStore.*;
+import static common.DataStore.ACCOUNT_NAV;
+import static common.DataStore.ANIME_NAV;
 
-public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
-
+public class CreateAccountScreenGUITest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.notificationIsVisible()
@@ -21,20 +21,17 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
     }
 
     @Test
-    @WithTagValuesOf({"smoke"})
-    @Title("Successfully Loged In from Account screen - 7566")
-    public void successfullyLogInAccountScreen() {
+    @WithTagValuesOf({"other"})
+    @Title("GUI of the 'Create Account' screen - 7568")
+    public void logInGUITest() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
                 .selectButton(ACCOUNT_NAV)
                 .buttonIsSelected(ACCOUNT_NAV);
 
         accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+                .pressCreateAccountButton();
 
-        loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
-
-        accountPageSteps.isUserLoggedIn();
+        createAccountSteps.createAccountPageIsVisible();
     }
 }

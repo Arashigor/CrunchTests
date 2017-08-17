@@ -31,14 +31,14 @@ public class LoginPageSteps extends ScenarioSteps {
 
     @Step("Enter data in email field")
     public LoginPageSteps enterEmail(String email) {
-        loginPage.waitForElement(loginPage.emailField,5000).clear();
+        loginPage.waitForElement(loginPage.emailField).clear();
         loginPage.toMobileElem(loginPage.emailField).setValue(email);
         return this;
     }
 
     @Step("Enter data in password field")
     public LoginPageSteps enterPassword(String password) {
-        loginPage.waitForElement(loginPage.passwordField,5000).clear();
+        loginPage.waitForElement(loginPage.passwordField).clear();
         loginPage.toMobileElem(loginPage.passwordField).setValue(password);
         return this;
     }
@@ -51,25 +51,8 @@ public class LoginPageSteps extends ScenarioSteps {
 
     @Step("User should see error message: '{0}'")
     public LoginPageSteps shouldSeeErrorMessage(String errorMessage) {
-
-        String error = "";
-        switch (errorMessage) {
-            case EMPTY_CREDENTIALS_MSG :
-                loginPage.waitForElement(loginPage.errorEmptyCredentials);
-                error = loginPage.errorEmptyCredentials.getText();
-                break;
-            case CORRECT_EMAIL_NO_PASSWORD_MSG :
-                loginPage.waitForElement(loginPage.errorEmptyPassword);
-                error = loginPage.errorEmptyPassword.getText();
-                break;
-            case INCORRECT_LOGIN_INFO_MSG :
-                loginPage.waitForElement(loginPage.errorIncorrectMailPass);
-                error = loginPage.errorIncorrectMailPass.getText();
-                break;
-        }
-        System.out.println(error);
         assertThat("Should see error message",
-                error.equals(errorMessage) , is(true));
+                false , is(true));
         return this;
     }
 

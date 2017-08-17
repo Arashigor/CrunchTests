@@ -9,7 +9,7 @@ import org.junit.Test;
 import static common.DataStore.ACCOUNT_NAV;
 import static common.DataStore.ANIME_NAV;
 
-public class AccountScreenGUITest extends BaseTest {
+public class AccountScreenGUITestAnon extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.notificationIsVisible()

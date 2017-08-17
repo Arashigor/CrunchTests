@@ -22,4 +22,10 @@ public class CreateAccountPage extends AbstractPage {
 
     @iOSFindBy(accessibility = "icAccountBearLGiphone")
     public WebElementFacade createAccountLogo;
+
+    @iOSFindBy(accessibility = "button close")
+    public WebElementFacade XButton;
+
+    @iOSFindBy(accessibility = "Later")
+    public WebElementFacade laterButton;
 }

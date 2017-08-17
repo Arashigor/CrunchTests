@@ -1,4 +1,4 @@
-package tests.account.login;
+package tests.account.logout;
 
 import basetest.BaseTest;
 import net.thucydides.core.annotations.Title;
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static common.DataStore.*;
 
-public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
+public class AccountScreenLogOutXTest extends BaseTest {
 
     @Before
     public void before() {
@@ -22,8 +22,8 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"smoke"})
-    @Title("Successfully Loged In from Account screen - 7566")
-    public void successfullyLogInAccountScreen() {
+    @Title("Account screen- Log Out x button - 1399961")
+    public void xAndLaterButtonsTest() {
         bottomNavBarSteps.addAllButtonsToList()
                 .buttonIsSelected(ANIME_NAV)
                 .selectButton(ACCOUNT_NAV)
@@ -35,6 +35,11 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
         loginPageSteps.loginPageIsVisible()
                 .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
-        accountPageSteps.isUserLoggedIn();
+        accountPageSteps.accountPageIsVisible()
+                .isUserLoggedIn()
+                .pressXtoLogout()
+                .isLogoutPopUpVisible()
+                .pressLogOutPopUp()
+                .isUserLoggedOut();
     }
 }
