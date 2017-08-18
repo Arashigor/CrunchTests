@@ -4,6 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SettingsPage;
 
+import java.util.Set;
+
 import static common.DataStore.DIRECTION_DOWN;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -40,6 +42,12 @@ public class SettingsSteps extends ScenarioSteps {
         assertThat("Should not see Log Out button",
                 settingsPage.logOutButton.isCurrentlyVisible(),
                 is(false));
+        return this;
+    }
+
+    @Step("Press Back Arrow")
+    public SettingsSteps pressBackArrow() {
+        settingsPage.clickOnElement(settingsPage.backArrow);
         return this;
     }
 

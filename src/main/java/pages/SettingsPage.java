@@ -10,4 +10,7 @@ public class SettingsPage extends AbstractPage {
 
     @iOSFindBy(accessibility = "LOG OUT")
     public WebElementFacade logOutButton;
+
+    @iOSFindBy(accessibility = "icon back arrow")
+    public WebElementFacade backArrow;
 }

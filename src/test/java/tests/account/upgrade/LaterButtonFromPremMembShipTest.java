@@ -22,7 +22,7 @@ public class LaterButtonFromPremMembShipTest extends BaseTest {
     @Test
     @WithTagValuesOf({"other"})
     @Title("'Later' button from Premium Membership screen - 7577")
-    public void logOutButtonTest() {
+    public void laterButtonTest() {
         animePageSteps.bottomNavBarSteps.addAllButtonsToList()
                 .selectButton(ACCOUNT_NAV);
 

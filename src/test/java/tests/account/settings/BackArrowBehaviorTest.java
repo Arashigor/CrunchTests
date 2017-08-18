@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static common.DataStore.ACCOUNT_NAV;
 
-public class SettingsButtonBehaviorTest extends BaseTest {
+public class BackArrowBehaviorTest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.pressAllow();
@@ -19,14 +19,16 @@ public class SettingsButtonBehaviorTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"smoke"})
-    @Title("'Settings' button behavior - 7598")
-    public void settingButtonTest() {
+    @Title("Back arrow '<' behavior - 7599")
+    public void backArrowTest() {
         animePageSteps.bottomNavBarSteps.addAllButtonsToList()
                 .selectButton(ACCOUNT_NAV);
 
         accountPageSteps.pressSettingsButton();
 
-        settingsSteps.shouldSeeSettingsPage();
+        settingsSteps.pressBackArrow();
+
+        accountPageSteps.shouldSeeAccountPage();
     }
 
 }
