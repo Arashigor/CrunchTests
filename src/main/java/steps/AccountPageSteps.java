@@ -89,4 +89,10 @@ public class AccountPageSteps {
         accountPage.clickOnElement(accountPage.getLogoutApprove());
         return this;
     }
+
+    @Step("Should see Upgrade Account banner")
+    public AccountPageSteps shouldSeeUpgradeAccountBanner() {
+        accountPage.upgradeAccount.shouldBeVisible();
+        return this;
+    }
 }
