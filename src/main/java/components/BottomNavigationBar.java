@@ -1,14 +1,16 @@
-package pages;
+package components;
 
 import io.appium.java_client.pagefactory.iOSFindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import pages.AbstractPage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class BottomNavigationBarPage extends AbstractPage {
+public class BottomNavigationBar extends AbstractPage {
+
     @iOSFindBy(accessibility = "Home")
     public WebElementFacade homeButton;
 
@@ -39,4 +41,5 @@ public class BottomNavigationBarPage extends AbstractPage {
                 .findAny()
                 .orElse(null);
     }
+
 }

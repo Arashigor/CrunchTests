@@ -11,8 +11,8 @@ public class PlayerSteps extends ScenarioSteps {
 
     private PlayerPage playerPage;
 
-    @Step("Player Page is visible")
-    public PlayerSteps playerIsVisible() {
+    @Step("Should see Player Page")
+    public PlayerSteps shouldSeePlayerPage() {
         assertThat("Should see player interface", playerPage.waitForElement(playerPage.pauseButton).isCurrentlyVisible(), is(true));
         return this;
     }

@@ -17,11 +17,9 @@ public class ErrorLogin extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
     }
 
     @Test
@@ -29,15 +27,12 @@ public class ErrorLogin extends BaseTest {
     @Title("Log In errors test - 7565")
     public void loginErrorWithEmptyFieldsTest() {
 
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-//        loginPageSteps.loginPageIsVisible()
+//        loginPageSteps.shouldSeeLoginPage()
 //                .errorLogIn(BLANK_EMAIL,BLANK_PASSWORD, EMPTY_CREDENTIALS_MSG)
 //                .errorLogIn(REGISTERED_USER_EMAIL,BLANK_PASSWORD, CORRECT_EMAIL_NO_PASSWORD_MSG)
 //                .errorLogIn(WRONG_EMAIL, REGISTERED_USER_PASSWORD, INCORRECT_LOGIN_INFO_MSG)

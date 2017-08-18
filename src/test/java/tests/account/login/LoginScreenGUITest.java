@@ -11,11 +11,9 @@ import static common.DataStore.*;
 public class LoginScreenGUITest extends BaseTest {
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -23,14 +21,11 @@ public class LoginScreenGUITest extends BaseTest {
     @WithTagValuesOf({"other"})
     @Title("GUI of the 'Log In' screen - 7563")
     public void logInGUITest() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-        loginPageSteps.loginPageIsVisible();
+        loginPageSteps.shouldSeeLoginPage();
     }
 }

@@ -12,8 +12,7 @@ public class SuccessfullyCreateAccountFromAccountScreenTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
         initialPageSteps.pressJustExplore();
     }
@@ -22,18 +21,14 @@ public class SuccessfullyCreateAccountFromAccountScreenTest extends BaseTest {
     @WithTagValuesOf({"smoke"})
     @Title("Successfully registration from Account screen - 7571")
     public void navigationBetweenTabsTest() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressCreateAccountButton();
+        accountPageSteps.pressCreateAccountButton();
 
-        createAccountSteps.createAccountPageIsVisible()
-                .createAccount(randomEmail(), REGISTERED_USER_PASSWORD);
+        createAccountSteps.createAccount(randomEmail(), REGISTERED_USER_PASSWORD);
 
-        premiumSubsSteps.premiumMembershipNavBarIsVisible()
+        premiumSubsSteps.shouldSeePremMembshipPage()
                 .pressLaterButton();
     }
 }

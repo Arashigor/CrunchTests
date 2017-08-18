@@ -1,15 +1,20 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.AnimePage;
+import steps.components.BottomNavigationBarSteps;
 
 public class AnimePageSteps extends ScenarioSteps {
 
     private AnimePage animePage;
 
-    @Step("Anime Page is visible")
-    public AnimePageSteps animePageIsVisible() {
+    @Steps
+    public BottomNavigationBarSteps bottomNavBarSteps;
+
+    @Step("Should see anime page")
+    public AnimePageSteps shouldSeeAnimePage() {
         //TODO check
         return this;
     }

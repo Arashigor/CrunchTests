@@ -11,7 +11,7 @@ public class FirstLaunchTest extends BaseTest {
     @WithTagValuesOf({ "smoke"})
     @Title("First launch popup notification test - 358219")
     public void firstLaunchAllowNotifications() {
-        notificationPopupSteps.notificationIsVisible()
+        notificationPopupSteps.shouldSeeNotificationPopup()
                 .pressAllow();
     }
 
@@ -19,7 +19,7 @@ public class FirstLaunchTest extends BaseTest {
     @WithTagValuesOf({ "smoke"})
     @Title("First launch popup notification test - 358219")
     public void firstLaunchDontAllowNotifications() {
-        notificationPopupSteps.notificationIsVisible()
+        notificationPopupSteps.shouldSeeNotificationPopup()
                 .pressDontAllow();
     }
 }

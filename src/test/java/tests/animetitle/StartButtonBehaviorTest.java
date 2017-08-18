@@ -6,18 +6,15 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Before;
 import org.junit.Test;
 
-import static common.DataStore.ANIME_NAV;
 import static common.DataStore.NEW_NAV;
 
 public class StartButtonBehaviorTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -26,19 +23,13 @@ public class StartButtonBehaviorTest extends BaseTest {
     @Title("'START' button behavior - 408501")
     public void startButtonBehaviorTest() {
 
-        animePageSteps.animePageIsVisible();
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(NEW_NAV);
 
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(NEW_NAV)
-                .buttonIsSelected(NEW_NAV);
+        newPageSteps.clickOnAnimeTitle();
 
-        newPageSteps.newAnimePageIsVisible()
-                .clickOnAnimeTitle();
+        animeTitleSteps.pressStartButton();
 
-        animeTitleSteps.animeTitlePageIsVisible()
-                .pressStartButton();
-
-        playerSteps.playerIsVisible();
+        playerSteps.shouldSeePlayerPage();
     }
 }

@@ -16,10 +16,10 @@ public class ErrorLoginFromInitialScreenTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
+        notificationPopupSteps
                 .pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
+        initialPageSteps
                 .pressLoginButton();
     }
 
@@ -27,7 +27,7 @@ public class ErrorLoginFromInitialScreenTest extends BaseTest {
     @WithTagValuesOf({ "smoke"})
     @Title("Log In errors test - 7565")
     public void loginErrorWithEmptyFieldsTest() {
-        loginPageSteps.loginPageIsVisible()
+        loginPageSteps.shouldSeeLoginPage()
                 .logIn(BLANK_EMAIL,BLANK_PASSWORD)
                 .shouldSeeErrorMessage(EMPTY_CREDENTIALS_MSG)
                 .logIn(REGISTERED_USER_EMAIL,BLANK_PASSWORD)

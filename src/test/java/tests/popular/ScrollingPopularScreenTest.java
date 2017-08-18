@@ -13,11 +13,9 @@ import static common.DataStore.DIRECTION_UP;
 public class ScrollingPopularScreenTest extends BaseTest {
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -25,9 +23,9 @@ public class ScrollingPopularScreenTest extends BaseTest {
     @WithTagValuesOf({"other"})
     @Title("'Scrolling the POPULAR screen - 7487")
     public void scrollingPopularScreenTest() {
-        bottomNavBarSteps.addAllButtonsToList().buttonIsSelected(ANIME_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList().shouldBeSelectedCorrectButton(ANIME_NAV);
 
-        animePageSteps.animePageIsVisible()
+        animePageSteps.shouldSeeAnimePage()
             .scrollPage(DIRECTION_DOWN)
             .scrollPage(DIRECTION_UP);
     }

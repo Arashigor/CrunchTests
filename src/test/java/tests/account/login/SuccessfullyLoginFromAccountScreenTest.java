@@ -12,11 +12,9 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
-        initialPageSteps.initialPageIsVisible()
-                .pressJustExplore();
+        initialPageSteps.pressJustExplore();
 
     }
 
@@ -24,17 +22,13 @@ public class SuccessfullyLoginFromAccountScreenTest extends BaseTest {
     @WithTagValuesOf({"smoke"})
     @Title("Successfully Loged In from Account screen - 7566")
     public void successfullyLogInAccountScreen() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(ACCOUNT_NAV)
-                .buttonIsSelected(ACCOUNT_NAV);
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ACCOUNT_NAV);
 
-        accountPageSteps.accountPageIsVisible()
-                .pressLogin();
+        accountPageSteps.pressLogin();
 
-        loginPageSteps.loginPageIsVisible()
-                .logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
+        loginPageSteps.logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
-        accountPageSteps.isUserLoggedIn();
+        accountPageSteps.shouldBeLoggedIn();
     }
 }

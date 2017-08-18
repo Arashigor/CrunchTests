@@ -11,8 +11,8 @@ public class NotificationPopupSteps extends ScenarioSteps {
 
     private NotificationPopupPage popupPage;
 
-    @Step("Notification PopUp should be visible")
-    public NotificationPopupSteps notificationIsVisible() {
+    @Step("Should see Notification PopUp")
+    public NotificationPopupSteps shouldSeeNotificationPopup() {
         popupPage.popupWindow.waitUntilVisible();
         assertThat("Should see notification popup", popupPage.popupWindow.isCurrentlyVisible(), is (true));
         return this;

@@ -2,13 +2,11 @@ package basetest;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.AccountPage;
-import pages.AnimePage;
 import steps.*;
+import steps.components.BottomNavigationBarSteps;
 
 @RunWith(SerenityRunner.class)
 public class BaseTest {
@@ -36,9 +34,6 @@ public class BaseTest {
 
     @Steps
     protected AccountPageSteps accountPageSteps;
-
-    @Steps
-    protected BottomNavigationBarSteps bottomNavBarSteps;
 
     @Steps
     protected AnimeTitleSteps animeTitleSteps;

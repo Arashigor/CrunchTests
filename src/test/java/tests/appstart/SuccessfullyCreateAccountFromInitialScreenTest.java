@@ -1,7 +1,6 @@
 package tests.appstart;
 
 import basetest.BaseTest;
-import common.DataStore;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Before;
@@ -14,7 +13,7 @@ public class SuccessfullyCreateAccountFromInitialScreenTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
+        notificationPopupSteps
                 .pressAllow();
     }
 
@@ -22,14 +21,13 @@ public class SuccessfullyCreateAccountFromInitialScreenTest extends BaseTest {
     @WithTagValuesOf({"smoke"})
     @Title("Successfully create account from Initial Page test - 377631")
     public void successfullyCreateAccountTest() {
-        initialPageSteps.initialPageIsVisible()
+        initialPageSteps
                 .pressCreateAccountButton();
 
 
-        createAccountSteps.createAccountPageIsVisible()
-                .createAccount(randomEmail(), BASIC_PASSWORD);
+        createAccountSteps.createAccount(randomEmail(), BASIC_PASSWORD);
 
-        premiumSubsSteps.premiumMembershipNavBarIsVisible()
+        premiumSubsSteps.shouldSeePremMembshipPage()
                 .pressLaterButton();
     }
 }

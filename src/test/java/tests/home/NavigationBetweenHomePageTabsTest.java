@@ -12,8 +12,7 @@ public class NavigationBetweenHomePageTabsTest extends BaseTest {
 
     @Before
     public void before() {
-        notificationPopupSteps.notificationIsVisible()
-                .pressAllow();
+        notificationPopupSteps.pressAllow();
 
         initialPageSteps.pressJustExplore();
     }
@@ -22,17 +21,13 @@ public class NavigationBetweenHomePageTabsTest extends BaseTest {
     @WithTagValuesOf({"smoke"})
     @Title("Navigation between the tabs - 377796")
     public void navigationBetweenTabsTest() {
-        bottomNavBarSteps.addAllButtonsToList()
-                .buttonIsSelected(ANIME_NAV)
-                .selectButton(HOME_NAV)
-                .buttonIsSelected(HOME_NAV);
-
-        homePageSteps.homePageQueueIsVisible();
+        animePageSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(HOME_NAV);
 
         homePageSteps.swipePage(DIRECTION_LEFT)
-                .homePageHistoryIsVisible()
+                .shouldSeeHomePageHistory()
                 .swipePage(DIRECTION_RIGHT)
-                .homePageQueueIsVisible();
+                .shouldSeeHomePageQueue();
     }
 
 }
