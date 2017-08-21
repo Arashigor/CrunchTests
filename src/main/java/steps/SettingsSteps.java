@@ -1,8 +1,12 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SettingsPage;
+import steps.components.BottomNavigationBarSteps;
+
+import java.util.Set;
 
 import static common.DataStore.DIRECTION_DOWN;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,6 +15,9 @@ import static org.hamcrest.core.Is.is;
 public class SettingsSteps extends ScenarioSteps {
 
     private SettingsPage settingsPage;
+
+    @Steps
+    public BottomNavigationBarSteps bottomNavBarSteps;
 
     @Step("Should see Settings Page")
     public SettingsSteps shouldSeeSettingsPage() {
@@ -40,6 +47,12 @@ public class SettingsSteps extends ScenarioSteps {
         assertThat("Should not see Log Out button",
                 settingsPage.logOutButton.isCurrentlyVisible(),
                 is(false));
+        return this;
+    }
+
+    @Step("Press Back Arrow")
+    public SettingsSteps pressBackArrow() {
+        settingsPage.clickOnElement(settingsPage.backArrow);
         return this;
     }
 
