@@ -24,6 +24,9 @@ public class AccountPage extends AbstractPage {
     @iOSFindBy(accessibility = "Settings")
     public WebElementFacade settingsButton;
 
+    @iOSFindBy(accessibility = "Upgrade Account")
+    public WebElementFacade upgradeAccount;
+
     @iOSFindBy(accessibility = REGISTERED_USER_EMAIL)
     public WebElementFacade userEmailButton;
 
