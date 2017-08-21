@@ -95,4 +95,10 @@ public class AccountPageSteps {
         accountPage.upgradeAccount.shouldBeVisible();
         return this;
     }
+
+    @Step("Press Upgrade Account Button")
+    public AccountPageSteps pressUpgradeAccountButton() {
+        accountPage.clickOnElement(accountPage.upgradeAccount);
+        return this;
+    }
 }

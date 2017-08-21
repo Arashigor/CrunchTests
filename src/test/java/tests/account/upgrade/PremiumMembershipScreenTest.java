@@ -10,7 +10,7 @@ import static common.DataStore.ACCOUNT_NAV;
 import static common.DataStore.REGISTERED_USER_EMAIL;
 import static common.DataStore.REGISTERED_USER_PASSWORD;
 
-public class UpgradeAccountButtonTest extends BaseTest {
+public class PremiumMembershipScreenTest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.pressAllow();
@@ -21,8 +21,8 @@ public class UpgradeAccountButtonTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"other"})
-    @Title("Upgrade Account button - 7575")
-    public void upgradeAccountButtonTest() {
+    @Title("'Premium Membership' screen - 7576")
+    public void premMemshipTest() {
         animePageSteps.bottomNavBarSteps.addAllButtonsToList()
                 .selectButton(ACCOUNT_NAV);
 
@@ -30,6 +30,8 @@ public class UpgradeAccountButtonTest extends BaseTest {
 
         loginPageSteps.logIn(REGISTERED_USER_EMAIL, REGISTERED_USER_PASSWORD);
 
-        accountPageSteps.shouldSeeUpgradeAccountBanner();
+        accountPageSteps.pressUpgradeAccountButton();
+
+        premiumSubsSteps.shouldSeePremMembshipPage();
     }
 }
