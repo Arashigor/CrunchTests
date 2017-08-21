@@ -22,7 +22,7 @@ public class UpgradeAccountButtonTest extends BaseTest {
     @Test
     @WithTagValuesOf({"other"})
     @Title("Upgrade Account button - 7575")
-    public void logOutButtonTest() {
+    public void upgradeAccountButtonTest() {
         animePageSteps.bottomNavBarSteps.addAllButtonsToList()
                 .selectButton(ACCOUNT_NAV);
 

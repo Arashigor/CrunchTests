@@ -7,8 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static common.DataStore.ACCOUNT_NAV;
+import static common.DataStore.ANIME_NAV;
 
-public class SettingsButtonBehaviorTest extends BaseTest {
+public class NavigationFromSettingsToAnyScreenTest extends BaseTest {
     @Before
     public void before() {
         notificationPopupSteps.pressAllow();
@@ -19,14 +20,16 @@ public class SettingsButtonBehaviorTest extends BaseTest {
 
     @Test
     @WithTagValuesOf({"smoke"})
-    @Title("'Settings' button behavior - 7598")
-    public void settingButtonTest() {
+    @Title("Navigation from Settings to any screen - 413860")
+    public void navigationFromSettingsTest() {
         animePageSteps.bottomNavBarSteps.addAllButtonsToList()
                 .selectButton(ACCOUNT_NAV);
 
         accountPageSteps.pressSettingsButton();
 
-        settingsSteps.shouldSeeSettingsPage();
-    }
+        settingsSteps.bottomNavBarSteps.addAllButtonsToList()
+                .selectButton(ANIME_NAV);
 
+        animePageSteps.shouldSeeAnimePage();
+    }
 }

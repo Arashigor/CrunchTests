@@ -22,7 +22,7 @@ public class PremiumMembershipScreenTest extends BaseTest {
     @Test
     @WithTagValuesOf({"other"})
     @Title("'Premium Membership' screen - 7576")
-    public void logOutButtonTest() {
+    public void premMemshipTest() {
         animePageSteps.bottomNavBarSteps.addAllButtonsToList()
                 .selectButton(ACCOUNT_NAV);
 
