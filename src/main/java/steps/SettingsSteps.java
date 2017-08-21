@@ -1,8 +1,10 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SettingsPage;
+import steps.components.BottomNavigationBarSteps;
 
 import java.util.Set;
 
@@ -13,6 +15,9 @@ import static org.hamcrest.core.Is.is;
 public class SettingsSteps extends ScenarioSteps {
 
     private SettingsPage settingsPage;
+
+    @Steps
+    public BottomNavigationBarSteps bottomNavBarSteps;
 
     @Step("Should see Settings Page")
     public SettingsSteps shouldSeeSettingsPage() {
